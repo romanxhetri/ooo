@@ -34,7 +34,7 @@ const MenuItemCard: React.FC<MenuItemCardProps> = ({ item }) => {
     return (
         <motion.div
             variants={cardVariants}
-            className="bg-brand-light rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 flex flex-col cursor-pointer"
+            className="bg-brand-light rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 ease-in-out flex flex-col cursor-pointer hover:-translate-y-2"
             onClick={() => openMenuItemModal(item)}
         >
             <div className="relative">
@@ -60,4 +60,3 @@ const MenuItemCard: React.FC<MenuItemCardProps> = ({ item }) => {
 };
 
 export default MenuItemCard;
-    

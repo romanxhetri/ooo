@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { useCart } from '../context/CartContext';
 import { useOrders } from '../context/OrderContext';
@@ -96,7 +95,7 @@ const CheckoutPage: React.FC = () => {
     
     return (
         <div className="container mx-auto px-4 py-12">
-            <h1 className="text-4xl font-bold text-center mb-8">Checkout</h1>
+            <h1 className="text-4xl font-bold text-center mb-8 text-brand-orange text-glow">Checkout</h1>
             <div className="grid lg:grid-cols-3 gap-12">
                 <div className="lg:col-span-2">
                     <form onSubmit={handleSubmit}>
@@ -198,4 +197,3 @@ const CheckoutPage: React.FC = () => {
 };
 
 export default CheckoutPage;
-    

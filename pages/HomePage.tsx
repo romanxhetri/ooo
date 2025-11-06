@@ -16,13 +16,14 @@ const HomePage: React.FC = () => {
         <div>
             {/* Hero Section */}
             <div className="relative h-screen bg-cover bg-center bg-no-repeat" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1594212699903-ec8a3e501716?q=80&w=2574&auto=format&fit=crop')" }}>
-                <div className="absolute inset-0 bg-black/60"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/70 via-brand-dark/20 to-transparent"></div>
                 <div className="relative z-10 flex flex-col items-center justify-center h-full text-white text-center px-4">
                     <motion.h1 
                         initial={{ opacity: 0, y: -50 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8 }}
-                        className="text-5xl md:text-7xl lg:text-8xl font-extrabold"
+                        className="text-5xl md:text-7xl lg:text-8xl font-extrabold text-glow"
+                        style={{'--glow-color': '#ffffffaa'} as React.CSSProperties}
                     >
                         Potato & Friends
                     </motion.h1>
@@ -53,7 +54,7 @@ const HomePage: React.FC = () => {
             {/* Featured Items Section */}
             <div className="py-20 bg-brand-light">
                 <div className="container mx-auto px-4 text-center">
-                    <h2 className="text-4xl font-extrabold text-brand-dark">Our Most Popular Fries</h2>
+                    <h2 className="text-4xl font-extrabold text-brand-orange text-glow">Our Most Popular Fries</h2>
                     <p className="mt-2 text-gray-600 max-w-xl mx-auto">Handpicked by our customers, these are the legends of our menu.</p>
                     <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {featuredItems.map(item => <MenuItemCard key={item.id} item={item} />)}
@@ -65,19 +66,35 @@ const HomePage: React.FC = () => {
             </div>
             
             {/* About Us Teaser */}
-            <div className="py-20 bg-cream">
-                <div className="container mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
-                    <div>
-                        <h2 className="text-4xl font-extrabold text-brand-dark">Our Spud-tacular Story</h2>
-                        <p className="mt-4 text-gray-700 leading-relaxed">
-                            It all started with a simple potato and a big dream. A dream to create the most delicious, creative, and unforgettable loaded fries the world has ever seen. At Potato & Friends, we're more than just a restaurant; we're a community of food lovers passionate about quality ingredients and bold flavors.
-                        </p>
-                        <button onClick={() => navigateTo(Page.About)} className="mt-6 bg-brand-dark text-white font-bold py-3 px-6 rounded-lg hover:bg-gray-800 transition-colors">
-                            Read More
-                        </button>
-                    </div>
-                    <div>
-                        <img src="https://picsum.photos/seed/restaurant-interior/600/400" alt="Restaurant Interior" className="rounded-lg shadow-xl"/>
+            <div className="py-20 bg-cream overflow-hidden">
+                <div className="container mx-auto px-4">
+                    <div className="grid md:grid-cols-2 gap-0 items-center">
+                        <div className="z-10">
+                            <motion.div 
+                                initial={{ opacity: 0, x: -50 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                transition={{ duration: 0.7 }}
+                                className="bg-brand-light p-10 rounded-xl shadow-2xl"
+                            >
+                                <h2 className="text-4xl font-extrabold text-brand-orange text-glow">Our Spud-tacular Story</h2>
+                                <p className="mt-4 text-gray-700 leading-relaxed">
+                                    It all started with a simple potato and a big dream. A dream to create the most delicious, creative, and unforgettable loaded fries the world has ever seen. At Potato & Friends, we're more than just a restaurant; we're a community of food lovers passionate about quality ingredients and bold flavors.
+                                </p>
+                                <button onClick={() => navigateTo(Page.About)} className="mt-6 bg-brand-dark text-white font-bold py-3 px-6 rounded-lg hover:bg-gray-800 transition-colors">
+                                    Read More
+                                </button>
+                            </motion.div>
+                        </div>
+                        <div className="md:-ml-24 mt-8 md:mt-0">
+                             <motion.img 
+                                initial={{ opacity: 0, scale: 0.9 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                                transition={{ duration: 0.7 }}
+                                src="https://picsum.photos/seed/restaurant-interior/600/400" 
+                                alt="Restaurant Interior" 
+                                className="rounded-xl shadow-xl"
+                            />
+                        </div>
                     </div>
                 </div>
             </div>

@@ -4,6 +4,21 @@ import { Reservation } from '../types';
 import { useAuth } from '../context/AuthContext';
 import { motion } from 'framer-motion';
 
+const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+        opacity: 1,
+        transition: {
+            staggerChildren: 0.2
+        }
+    }
+};
+
+const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 },
+};
+
 const ReservationsPage: React.FC = () => {
     const { reservations, setReservations } = useData();
     const { currentUser } = useAuth();
@@ -37,13 +52,19 @@ const ReservationsPage: React.FC = () => {
     if (isConfirmed) {
         return (
             <div className="container mx-auto px-4 py-20 text-center">
-                <motion.div initial={{ scale: 0.8, opacity: 0 }} animate={{ scale: 1, opacity: 1 }}>
-                    <h1 className="text-4xl font-bold text-brand-green">Reservation Confirmed!</h1>
-                    <p className="mt-4 text-lg text-gray-700">Thank you, {name}. We've sent a confirmation to {email}.</p>
-                    <p className="mt-2">We look forward to seeing you on {new Date(date).toLocaleDateString()} at {time}.</p>
-                    <button onClick={() => setIsConfirmed(false)} className="mt-8 bg-brand-orange text-white font-bold py-3 px-6 rounded-lg">
-                        Make Another Reservation
-                    </button>
+                <motion.div 
+                    initial="hidden"
+                    animate="visible"
+                    variants={containerVariants}
+                >
+                    <motion.h1 variants={itemVariants} className="text-4xl font-bold text-brand-orange text-glow">Reservation Confirmed!</motion.h1>
+                    <motion.p variants={itemVariants} className="mt-4 text-lg text-gray-700">Thank you, {name}. We've sent a confirmation to {email}.</motion.p>
+                    <motion.p variants={itemVariants} className="mt-2 text-gray-600">We look forward to seeing you on {new Date(date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })} at {time}.</motion.p>
+                    <motion.div variants={itemVariants}>
+                        <button onClick={() => setIsConfirmed(false)} className="mt-8 bg-brand-orange text-white font-bold py-3 px-6 rounded-lg hover:bg-amber-500 transition-colors">
+                            Make Another Reservation
+                        </button>
+                    </motion.div>
                 </motion.div>
             </div>
         );
@@ -53,7 +74,7 @@ const ReservationsPage: React.FC = () => {
         <div className="bg-brand-light py-16">
             <div className="container mx-auto px-4">
                 <div className="max-w-3xl mx-auto text-center">
-                    <h1 className="text-4xl md:text-5xl font-extrabold text-brand-dark">Book Your Table</h1>
+                    <h1 className="text-4xl md:text-5xl font-extrabold text-brand-orange text-glow">Book Your Table</h1>
                     <p className="mt-4 text-lg text-gray-600">
                         Reserve your spot and get ready for a delicious experience. We can't wait to serve you!
                     </p>

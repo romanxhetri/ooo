@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -9,13 +8,37 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+      body::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300"%3E%3Cfilter id="noise"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.75" numOctaves="3" stitchTiles="stitch"/%3E%3CfeColorMatrix type="saturate" values="0"/%3E%3C/filter%3E%3Crect width="100%" height="100%" filter="url(%23noise)"/%3E%3C/svg%3E');
+        opacity: 0.05;
+        z-index: -1;
+        pointer-events: none;
+      }
+      .text-glow {
+        text-shadow: 0 0 10px #FBBF24;
+      }
+      @keyframes text-glow-pulse {
+        0%, 100% { text-shadow: 0 0 10px #FBBF24; }
+        50% { text-shadow: 0 0 20px #FBBF24, 0 0 30px #FBBF24; }
+      }
+      .text-glow-animated {
+        animation: text-glow-pulse 3s infinite ease-in-out;
+      }
+    </style>
     <script>
       tailwind.config = {
         theme: {
           extend: {
             colors: {
               cream: '#FDF6E3',
-              'brand-orange': '#F59E0B',
+              'brand-orange': '#FBBF24',
               'brand-green': '#10B981',
               'brand-dark': '#2F2B28',
               'brand-light': '#FFFBF2',
@@ -23,6 +46,26 @@
             fontFamily: {
               sans: ['Poppins', 'sans-serif'],
             },
+            boxShadow: {
+              'lg': '0 10px 15px -3px rgba(47, 43, 40, 0.1), 0 4px 6px -2px rgba(47, 43, 40, 0.05)',
+              'xl': '0 20px 25px -5px rgba(47, 43, 40, 0.1), 0 10px 10px -5px rgba(47, 43, 40, 0.04)',
+              '2xl': '0 25px 50px -12px rgba(47, 43, 40, 0.25)',
+              'inner': 'inset 0 2px 4px 0 rgba(0, 0, 0, 0.06)',
+            },
+            keyframes: {
+              'fade-in': {
+                  '0%': { opacity: '0' },
+                  '100%': { opacity: '1' },
+              },
+              'slide-up': {
+                  '0%': { transform: 'translateY(20px)', opacity: '0' },
+                  '100%': { transform: 'translateY(0)', opacity: '1' },
+              },
+            },
+            animation: {
+                'fade-in': 'fade-in 0.5s ease-out forwards',
+                'slide-up': 'slide-up 0.5s ease-out forwards',
+            }
           },
         },
       }
@@ -43,4 +86,3 @@
     <script type="module" src="/index.tsx"></script>
   </body>
 </html>
-   

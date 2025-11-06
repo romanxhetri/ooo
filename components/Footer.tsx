@@ -1,6 +1,21 @@
-import React from 'react';
+
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { CheckCircleIcon } from './icons';
 
 const Footer: React.FC = () => {
+    const [newsletterEmail, setNewsletterEmail] = useState('');
+    const [newsletterSubmitted, setNewsletterSubmitted] = useState(false);
+
+    const handleNewsletterSubmit = (e: React.FormEvent) => {
+        e.preventDefault();
+        // Basic email validation
+        if (newsletterEmail && newsletterEmail.includes('@')) {
+            setNewsletterSubmitted(true);
+        }
+    };
+
+
     return (
         <footer className="bg-brand-dark text-white">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -24,10 +39,10 @@ const Footer: React.FC = () => {
                     <div>
                         <h4 className="font-semibold mb-4">Quick Links</h4>
                         <ul className="space-y-2 text-gray-400">
-                            <li><button className="hover:text-white text-left">Home</button></li>
-                            <li><button className="hover:text-white text-left">Menu</button></li>
-                            <li><button className="hover:text-white text-left">Reservations</button></li>
-                            <li><button className="hover:text-white text-left">About Us</button></li>
+                            <li><a href="#" className="hover:text-brand-orange transition-colors">Home</a></li>
+                            <li><a href="#" className="hover:text-brand-orange transition-colors">Menu</a></li>
+                            <li><a href="#" className="hover:text-brand-orange transition-colors">Reservations</a></li>
+                            <li><a href="#" className="hover:text-brand-orange transition-colors">About Us</a></li>
                         </ul>
                     </div>
                     <div>
@@ -41,10 +56,48 @@ const Footer: React.FC = () => {
                     <div>
                          <h4 className="font-semibold mb-4">Newsletter</h4>
                          <p className="text-gray-400 mb-2">Get updates on new items and special offers!</p>
-                         <form className="flex">
-                            <input type="email" placeholder="Your Email" className="w-full p-2 rounded-l-md text-gray-800 focus:outline-none" />
-                            <button type="submit" className="bg-brand-orange p-2 rounded-r-md font-bold">Go</button>
-                         </form>
+                         <div className="relative h-12">
+                            <AnimatePresence mode="wait">
+                                {newsletterSubmitted ? (
+                                    <motion.div
+                                        key="success"
+                                        initial={{ opacity: 0, y: 10 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        exit={{ opacity: 0, y: -10 }}
+                                        className="flex items-center text-brand-green"
+                                    >
+                                        <CheckCircleIcon className="w-6 h-6 mr-2"/>
+                                        <span>Thanks for subscribing!</span>
+                                    </motion.div>
+                                ) : (
+                                    <motion.form
+                                        key="form"
+                                        onSubmit={handleNewsletterSubmit}
+                                        initial={{ opacity: 0 }}
+                                        animate={{ opacity: 1 }}
+                                        exit={{ opacity: 0 }}
+                                        className="flex absolute inset-0"
+                                    >
+                                        <input
+                                            type="email"
+                                            placeholder="Your Email"
+                                            value={newsletterEmail}
+                                            onChange={(e) => setNewsletterEmail(e.target.value)}
+                                            required
+                                            aria-label="Email for newsletter"
+                                            className="w-full p-2 rounded-l-md text-gray-800 focus:outline-none focus:ring-2 focus:ring-brand-orange"
+                                        />
+                                        <button
+                                            type="submit"
+                                            aria-label="Subscribe to newsletter"
+                                            className="bg-brand-orange p-2 rounded-r-md font-bold hover:bg-amber-500 transition-colors"
+                                        >
+                                            Go
+                                        </button>
+                                    </motion.form>
+                                )}
+                            </AnimatePresence>
+                         </div>
                     </div>
                 </div>
                 <div className="mt-8 pt-8 border-t border-gray-700 text-center text-gray-500 text-sm">

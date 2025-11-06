@@ -7,16 +7,16 @@ const AboutPage: React.FC = () => {
     const chef = teamMembers.find(m => m.role.toLowerCase().includes('chef'));
 
     return (
-        <div className="bg-brand-light">
+        <div className="bg-brand-light overflow-hidden">
             {/* Story Section */}
             <div className="container mx-auto px-4 py-20">
-                <div className="grid md:grid-cols-2 gap-12 items-center">
-                    <div>
+                <div className="grid md:grid-cols-5 gap-12 items-center">
+                    <div className="md:col-span-3">
                         <motion.h1 
                             initial={{ opacity: 0, x: -50 }} 
                             animate={{ opacity: 1, x: 0 }} 
                             transition={{ duration: 0.7 }}
-                            className="text-4xl md:text-5xl font-extrabold text-brand-dark"
+                            className="text-4xl md:text-5xl font-extrabold text-brand-orange text-glow"
                         >
                             Our Story: More Than Just Fries
                         </motion.h1>
@@ -38,6 +38,7 @@ const AboutPage: React.FC = () => {
                         </motion.p>
                     </div>
                     <motion.div 
+                        className="md:col-span-2"
                         initial={{ opacity: 0, scale: 0.9 }} 
                         animate={{ opacity: 1, scale: 1 }} 
                         transition={{ duration: 0.7, delay: 0.3 }}
@@ -51,7 +52,7 @@ const AboutPage: React.FC = () => {
             {chef && (
                 <div className="bg-cream py-20">
                     <div className="container mx-auto px-4 text-center">
-                         <h2 className="text-4xl font-extrabold text-brand-dark">Meet the Mastermind</h2>
+                         <h2 className="text-4xl font-extrabold text-brand-orange text-glow">Meet the Mastermind</h2>
                          <div className="mt-10 max-w-sm mx-auto bg-white rounded-lg shadow-xl p-6">
                             <img src={chef.imageUrl} alt={chef.name} className="w-32 h-32 rounded-full mx-auto -mt-20 border-8 border-cream object-cover" />
                             <h3 className="text-2xl font-bold mt-4">{chef.name}</h3>

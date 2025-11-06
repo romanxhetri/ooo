@@ -1,4 +1,3 @@
-
 import React, { useMemo } from 'react';
 import { useData } from '../context/DataContext';
 import { User } from '../types';
@@ -34,7 +33,7 @@ const LeaderboardPage: React.FC = () => {
                 animate={{ opacity: 1, y: 0 }}
                 className="text-center"
             >
-                <h1 className="text-4xl md:text-5xl font-extrabold text-brand-dark">Spud-tacular Leaderboard</h1>
+                <h1 className="text-4xl md:text-5xl font-extrabold text-brand-orange text-glow">Spud-tacular Leaderboard</h1>
                 <p className="mt-2 text-lg text-gray-600">See who's the top potato in our loyalty program!</p>
             </motion.div>
 
@@ -46,7 +45,7 @@ const LeaderboardPage: React.FC = () => {
                             initial={{ opacity: 0, x: -50 }}
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ duration: 0.5, delay: index * 0.1 }}
-                            className="flex items-center p-4 bg-white rounded-lg shadow-sm"
+                            className="flex items-center p-4 bg-white rounded-lg shadow-sm hover:scale-[1.02] hover:shadow-xl transition-all duration-200 cursor-default"
                         >
                             <div className={`w-10 h-10 rounded-full flex items-center justify-center font-bold text-lg ${getRankColor(index)}`}>
                                 {index + 1}
@@ -58,7 +57,7 @@ const LeaderboardPage: React.FC = () => {
                                 </p>
                             </div>
                             <div className="text-right">
-                                <p className="font-extrabold text-xl text-brand-orange">{user.spudPoints}</p>
+                                <p className="font-extrabold text-xl text-brand-orange text-glow">{user.spudPoints}</p>
                                 <p className="text-xs text-gray-500">Spud Points</p>
                             </div>
                         </motion.div>
@@ -71,4 +70,3 @@ const LeaderboardPage: React.FC = () => {
 };
 
 export default LeaderboardPage;
-    

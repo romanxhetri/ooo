@@ -62,7 +62,7 @@ const CartSidebar: React.FC = () => {
                         animate={{ x: '0%' }}
                         exit={{ x: '100%' }}
                         transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-                        className="absolute right-0 top-0 h-full w-full max-w-md bg-cream shadow-2xl flex flex-col"
+                        className="absolute right-0 top-0 h-full w-full max-w-md bg-cream/95 backdrop-blur-lg shadow-2xl flex flex-col"
                         onClick={(e) => e.stopPropagation()}
                     >
                         <div className="flex items-center justify-between p-6 border-b border-orange-200">
@@ -105,4 +105,3 @@ const CartSidebar: React.FC = () => {
 };
 
 export default CartSidebar;
-    

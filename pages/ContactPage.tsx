@@ -4,7 +4,7 @@ const ContactPage: React.FC = () => {
     return (
         <div className="container mx-auto px-4 py-16">
             <div className="text-center mb-12">
-                <h1 className="text-4xl md:text-5xl font-extrabold text-brand-dark">Get In Touch</h1>
+                <h1 className="text-4xl md:text-5xl font-extrabold text-brand-orange text-glow">Get In Touch</h1>
                 <p className="mt-4 text-lg text-gray-600">We'd love to hear from you. Whether it's a question, a suggestion, or just to say hi!</p>
             </div>
             

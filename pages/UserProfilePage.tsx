@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { useAuth } from '../context/AuthContext';
 import { useOrders } from '../context/OrderContext';
@@ -55,11 +54,11 @@ const UserProfilePage: React.FC = () => {
                 <div className="lg:col-span-1">
                     <div className="bg-brand-light p-6 rounded-lg shadow-md text-center sticky top-24">
                         <PotatoAvatar accessories={currentUser.unlockedAccessories} />
-                        <h2 className="text-2xl font-bold mt-4">{currentUser.name}</h2>
+                        <h2 className="text-2xl font-bold mt-4 text-brand-orange text-glow">{currentUser.name}</h2>
                         <p className="text-gray-600">{currentUser.email}</p>
                         <div className="mt-4 bg-orange-100 p-4 rounded-lg">
                             <p className="text-sm font-semibold text-brand-orange uppercase">Spud Points</p>
-                            <p className="text-4xl font-extrabold text-brand-orange">{currentUser.spudPoints}</p>
+                            <p className="text-4xl font-extrabold text-brand-orange text-glow">{currentUser.spudPoints}</p>
                         </div>
                     </div>
                 </div>
@@ -68,7 +67,7 @@ const UserProfilePage: React.FC = () => {
                 <div className="lg:col-span-2">
                     {/* Badges Section */}
                     <div className="bg-brand-light p-6 rounded-lg shadow-md mb-8">
-                        <h3 className="text-xl font-bold mb-4">Your Badges</h3>
+                        <h3 className="text-xl font-bold mb-4 text-brand-orange text-glow">Your Badges</h3>
                         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
                             {badges.map(badge => {
                                 const isUnlocked = currentUser.unlockedBadges.includes(badge.id);
@@ -85,7 +84,7 @@ const UserProfilePage: React.FC = () => {
 
                     {/* Order History Section */}
                     <div className="bg-brand-light p-6 rounded-lg shadow-md">
-                        <h3 className="text-xl font-bold mb-4">Order History</h3>
+                        <h3 className="text-xl font-bold mb-4 text-brand-orange text-glow">Order History</h3>
                         <div className="space-y-4 max-h-96 overflow-y-auto">
                             {userOrders.length > 0 ? userOrders.map(order => (
                                 <div key={order.id} className="border p-4 rounded-md bg-white">
@@ -118,4 +117,3 @@ const UserProfilePage: React.FC = () => {
 };
 
 export default UserProfilePage;
-    

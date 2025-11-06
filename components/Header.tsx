@@ -49,7 +49,7 @@ const Header: React.FC = () => {
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center justify-between h-20">
                     <div className="flex-shrink-0 cursor-pointer" onClick={() => navigateTo(Page.Home)}>
-                        <span className="text-2xl font-extrabold text-brand-dark">Potato & Friends</span>
+                        <span className="text-2xl font-extrabold text-brand-orange text-glow">Potato & Friends</span>
                     </div>
 
                     <nav className="hidden md:flex items-center space-x-6">

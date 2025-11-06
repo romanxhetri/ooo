@@ -1,5 +1,6 @@
 import React from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
+// FIX: Import the `Transition` type from framer-motion to correctly type the animation transition object.
+import { AnimatePresence, motion, Transition } from 'framer-motion';
 import { useAppState } from '../context/AppContext';
 import { Page } from '../types';
 
@@ -26,7 +27,9 @@ const pageVariants = {
   out: { opacity: 0, y: -20 },
 };
 
-const pageTransition = {
+// FIX: Explicitly type `pageTransition` with the `Transition` type from framer-motion.
+// This resolves the error where TypeScript inferred the 'type' property as a generic 'string' instead of the required literal 'tween'.
+const pageTransition: Transition = {
   type: 'tween',
   ease: 'anticipate',
   duration: 0.5,
