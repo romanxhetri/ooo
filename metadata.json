@@ -1,0 +1,5 @@
+{
+  "name": "Potato & Friends",
+  "description": "A full-featured web application for the fictional fast-food restaurant 'Potato & Friends'. It includes user authentication, a filterable menu, a multi-step checkout process, order tracking, a loyalty system with points and badges, and a comprehensive admin dashboard for management.",
+  "requestFramePermissions": []
+}
