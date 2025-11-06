@@ -1,4 +1,3 @@
-
 import React, { useState, useMemo } from 'react';
 import { useData } from '../context/DataContext';
 import { useAppState } from '../context/AppContext';
@@ -66,7 +65,7 @@ const MenuPage: React.FC = () => {
 
     return (
         <div>
-            {/* Hero Section */}
+            {/* Page Header */}
             <div className="bg-brand-light text-center py-16 px-4">
                 <motion.h1
                     initial={{ opacity: 0, y: -20 }}
@@ -74,7 +73,7 @@ const MenuPage: React.FC = () => {
                     transition={{ duration: 0.5 }}
                     className="text-4xl md:text-6xl font-extrabold text-brand-dark"
                 >
-                    Discover Your New Favorite Fries
+                    Our Delicious Menu
                 </motion.h1>
                 <motion.p
                     initial={{ opacity: 0, y: 20 }}
@@ -82,7 +81,7 @@ const MenuPage: React.FC = () => {
                     transition={{ duration: 0.5, delay: 0.2 }}
                     className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto"
                 >
-                    From classic cheesy to spicy volcano, every bite is a flavor adventure.
+                    From classic cheesy to spicy volcano, every bite is a flavor adventure. Crafted with love, served with a smile.
                 </motion.p>
             </div>
 
@@ -156,4 +155,3 @@ const MenuPage: React.FC = () => {
 };
 
 export default MenuPage;
-    

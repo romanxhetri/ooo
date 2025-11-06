@@ -1,4 +1,3 @@
-
 export enum DietaryTag {
     Vegetarian = 'Vegetarian',
     Vegan = 'Vegan',
@@ -107,8 +106,39 @@ export interface PromoCode {
     isActive: boolean;
 }
 
+export interface Reservation {
+    id: string;
+    userId: string | 'guest';
+    name: string;
+    email: string;
+    phone: string;
+    date: string;
+    time: string;
+    partySize: number;
+    specialRequest?: string;
+}
+
+export interface GalleryImage {
+    id: string;
+    url: string;
+    caption: string;
+}
+
+export interface TeamMember {
+    id: string;
+    name: string;
+    role: string;
+    bio: string;
+    imageUrl: string;
+}
+
 export enum Page {
+    Home = 'HOME',
     Menu = 'MENU',
+    Reservations = 'RESERVATIONS',
+    Gallery = 'GALLERY',
+    About = 'ABOUT',
+    Contact = 'CONTACT',
     Checkout = 'CHECKOUT',
     OrderTracking = 'ORDER_TRACKING',
     Profile = 'PROFILE',
@@ -122,4 +152,3 @@ export enum AdminPage {
     Promotions = 'PROMOTIONS',
     Settings = 'SETTINGS',
 }
-   

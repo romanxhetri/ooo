@@ -1,5 +1,4 @@
-
-import { MenuItem, DietaryTag, Badge, PromoCode } from './types';
+import { MenuItem, DietaryTag, Badge, PromoCode, GalleryImage, TeamMember, Reservation } from './types';
 
 export const MENU_CATEGORIES = ['Loaded Fries', 'Sides', 'Dips', 'Drinks'];
 
@@ -99,4 +98,26 @@ export const POTATO_AVATAR_ACCESSORIES: Record<string, string> = {
     'Chef Hat': '👨‍🍳',
     'Sunglasses': '😎'
 };
-   
+
+export const INITIAL_GALLERY_IMAGES: GalleryImage[] = [
+    { id: 'g-01', url: 'https://picsum.photos/seed/food-1/800/600', caption: 'Our signature Volcano Fries' },
+    { id: 'g-02', url: 'https://picsum.photos/seed/interior-1/600/800', caption: 'Cozy and modern dining area' },
+    { id: 'g-03', url: 'https://picsum.photos/seed/food-2/800/600', caption: 'Freshly made Garden Delight' },
+    { id: 'g-04', url: 'https://picsum.photos/seed/exterior-1/800/600', caption: 'Welcome to Potato & Friends' },
+    { id: 'g-05', url: 'https://picsum.photos/seed/drinks-1/600/800', caption: 'Refreshing house-made lemonade' },
+    { id: 'g-06', url: 'https://picsum.photos/seed/interior-2/800/600', caption: 'Smiles and good times' },
+    { id: 'g-07', url: 'https://picsum.photos/seed/food-3/600/800', caption: 'A closeup of cheesy goodness' },
+    { id: 'g-08', url: 'https://picsum.photos/seed/team-1/800/600', caption: 'Our amazing team' },
+];
+
+export const INITIAL_TEAM_MEMBERS: TeamMember[] = [
+    {
+        id: 'tm-01',
+        name: 'Pawan Gurung',
+        role: 'Executive Chef & Founder',
+        bio: 'With a passion for potatoes and a flair for flavor, Pawan is the creative force behind every dish.',
+        imageUrl: 'https://picsum.photos/seed/chef-pawan/400/400'
+    }
+];
+
+export const INITIAL_RESERVATIONS: Reservation[] = [];

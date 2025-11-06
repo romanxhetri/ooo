@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useAppState } from '../context/AppContext';
@@ -7,7 +6,12 @@ import { Page } from '../types';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import CartSidebar from '../components/CartSidebar';
+import HomePage from './HomePage';
 import MenuPage from './MenuPage';
+import ReservationsPage from './ReservationsPage';
+import GalleryPage from './GalleryPage';
+import AboutPage from './AboutPage';
+import ContactPage from './ContactPage';
 import CheckoutPage from './CheckoutPage';
 import OrderTrackingPage from './OrderTrackingPage';
 import UserProfilePage from './UserProfilePage';
@@ -33,8 +37,18 @@ const MainApp: React.FC = () => {
 
     const renderPage = () => {
         switch (currentPage) {
+            case Page.Home:
+                return <HomePage />;
             case Page.Menu:
                 return <MenuPage />;
+            case Page.Reservations:
+                return <ReservationsPage />;
+            case Page.Gallery:
+                return <GalleryPage />;
+            case Page.About:
+                return <AboutPage />;
+            case Page.Contact:
+                return <ContactPage />;
             case Page.Checkout:
                 return <CheckoutPage />;
             case Page.OrderTracking:
@@ -44,7 +58,7 @@ const MainApp: React.FC = () => {
             case Page.Leaderboard:
                 return <LeaderboardPage />;
             default:
-                return <MenuPage />;
+                return <HomePage />;
         }
     };
 
@@ -75,4 +89,3 @@ const MainApp: React.FC = () => {
 };
 
 export default MainApp;
-    

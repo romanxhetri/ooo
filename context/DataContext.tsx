@@ -1,8 +1,7 @@
-
 import React, { createContext, useContext, ReactNode, useEffect } from 'react';
 import useLocalStorage from '../hooks/useLocalStorage';
-import { MenuItem, User, PromoCode, Badge } from '../types';
-import { INITIAL_MENU_ITEMS, INITIAL_PROMO_CODES, INITIAL_BADGES } from '../constants';
+import { MenuItem, User, PromoCode, Badge, Reservation, GalleryImage, TeamMember } from '../types';
+import { INITIAL_MENU_ITEMS, INITIAL_PROMO_CODES, INITIAL_BADGES, INITIAL_GALLERY_IMAGES, INITIAL_TEAM_MEMBERS, INITIAL_RESERVATIONS } from '../constants';
 
 interface DataContextType {
     menuItems: MenuItem[];
@@ -14,6 +13,10 @@ interface DataContextType {
     dailySpecialId: string | null;
     setDailySpecialId: React.Dispatch<React.SetStateAction<string | null>>;
     badges: Badge[];
+    reservations: Reservation[];
+    setReservations: React.Dispatch<React.SetStateAction<Reservation[]>>;
+    galleryImages: GalleryImage[];
+    teamMembers: TeamMember[];
 }
 
 const DataContext = createContext<DataContextType | undefined>(undefined);
@@ -24,6 +27,9 @@ export const DataProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     const [promoCodes, setPromoCodes] = useLocalStorage<PromoCode[]>('promoCodes', []);
     const [dailySpecialId, setDailySpecialId] = useLocalStorage<string | null>('dailySpecialId', null);
     const [badges] = useLocalStorage<Badge[]>('badges', INITIAL_BADGES);
+    const [reservations, setReservations] = useLocalStorage<Reservation[]>('reservations', INITIAL_RESERVATIONS);
+    const [galleryImages] = useLocalStorage<GalleryImage[]>('galleryImages', INITIAL_GALLERY_IMAGES);
+    const [teamMembers] = useLocalStorage<TeamMember[]>('teamMembers', INITIAL_TEAM_MEMBERS);
 
     useEffect(() => {
         const storedMenu = localStorage.getItem('menuItems');
@@ -69,6 +75,10 @@ export const DataProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
         dailySpecialId,
         setDailySpecialId,
         badges,
+        reservations,
+        setReservations,
+        galleryImages,
+        teamMembers,
     };
 
     return <DataContext.Provider value={value}>{children}</DataContext.Provider>;
@@ -81,4 +91,3 @@ export const useData = (): DataContextType => {
     }
     return context;
 };
-   

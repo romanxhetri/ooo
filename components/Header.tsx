@@ -1,4 +1,3 @@
-
 import React, { useState, useRef, useEffect } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { useAppState } from '../context/AppContext';
@@ -27,8 +26,12 @@ const Header: React.FC = () => {
     }, []);
 
     const navLinks = [
+        { name: 'Home', page: Page.Home },
         { name: 'Menu', page: Page.Menu },
-        { name: 'Leaderboard', page: Page.Leaderboard },
+        { name: 'Reservations', page: Page.Reservations },
+        { name: 'Gallery', page: Page.Gallery },
+        { name: 'About', page: Page.About },
+        { name: 'Contact', page: Page.Contact },
     ];
 
     const handleNavigation = (page: Page) => {
@@ -45,11 +48,11 @@ const Header: React.FC = () => {
         <header className="fixed top-0 left-0 right-0 bg-cream/80 backdrop-blur-md shadow-md z-40">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center justify-between h-20">
-                    <div className="flex-shrink-0 cursor-pointer" onClick={() => navigateTo(Page.Menu)}>
-                        <span className="text-3xl font-extrabold text-brand-dark">P&F</span>
+                    <div className="flex-shrink-0 cursor-pointer" onClick={() => navigateTo(Page.Home)}>
+                        <span className="text-2xl font-extrabold text-brand-dark">Potato & Friends</span>
                     </div>
 
-                    <nav className="hidden md:flex items-center space-x-8">
+                    <nav className="hidden md:flex items-center space-x-6">
                         {navLinks.map((link) => (
                             <button
                                 key={link.name}
@@ -89,9 +92,14 @@ const Header: React.FC = () => {
                                             <p className="text-sm text-gray-500">{currentUser?.email}</p>
                                         </div>
                                         {currentUser?.id !== 'guest' && (
-                                        <button onClick={() => handleNavigation(Page.Profile)} className="w-full text-left px-4 py-2 text-gray-700 hover:bg-orange-100">
-                                            My Profile
-                                        </button>
+                                        <>
+                                            <button onClick={() => handleNavigation(Page.Profile)} className="w-full text-left px-4 py-2 text-gray-700 hover:bg-orange-100">
+                                                My Profile
+                                            </button>
+                                            <button onClick={() => handleNavigation(Page.Leaderboard)} className="w-full text-left px-4 py-2 text-gray-700 hover:bg-orange-100">
+                                                Leaderboard
+                                            </button>
+                                        </>
                                         )}
                                         <button onClick={() => setActiveAiModal('chef')} className="w-full text-left px-4 py-2 text-gray-700 hover:bg-orange-100">Ask the Chef</button>
                                         <button onClick={() => setActiveAiModal('assistant')} className="w-full text-left px-4 py-2 text-gray-700 hover:bg-orange-100">AI Assistant</button>
@@ -113,4 +121,3 @@ const Header: React.FC = () => {
 };
 
 export default Header;
-    

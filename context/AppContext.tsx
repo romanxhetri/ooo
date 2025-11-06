@@ -1,4 +1,3 @@
-
 import React, { createContext, useContext, useState, ReactNode } from 'react';
 import { Page, MenuItem, Order } from '../types';
 
@@ -22,7 +21,7 @@ interface AppStateContextType {
 const AppStateContext = createContext<AppStateContextType | undefined>(undefined);
 
 export const AppStateProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-    const [currentPage, setCurrentPage] = useState<Page>(Page.Menu);
+    const [currentPage, setCurrentPage] = useState<Page>(Page.Home);
     const [isCartOpen, setIsCartOpen] = useState(false);
     const [isMenuItemModalOpen, setIsMenuItemModalOpen] = useState(false);
     const [selectedMenuItem, setSelectedMenuItem] = useState<MenuItem | null>(null);
@@ -83,4 +82,3 @@ export const useAppState = (): AppStateContextType => {
     }
     return context;
 };
-   
