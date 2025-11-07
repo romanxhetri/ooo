@@ -82,8 +82,8 @@ const LoginPage: React.FC = () => {
         <div className="min-h-screen bg-cream flex items-center justify-center p-4">
             <div className="w-full max-w-6xl mx-auto grid md:grid-cols-2 items-center gap-8 md:gap-16">
                 <div className="text-center md:text-left">
-                    <h1 className="text-5xl md:text-7xl font-extrabold text-brand-dark leading-tight">
-                        <span className="text-brand-orange text-glow-animated">Potato & Friends</span>
+                    <h1 className="text-5xl md:text-7xl leading-tight">
+                        <span className="logo-3d">Potato & Friends</span>
                     </h1>
                     <p className="mt-4 text-lg text-gray-700">Your daily dose of delicious, loaded fries and more. Crafted with love, served with a smile.</p>
                 </div>

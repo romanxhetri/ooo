@@ -143,12 +143,15 @@ export enum Page {
     OrderTracking = 'ORDER_TRACKING',
     Profile = 'PROFILE',
     Leaderboard = 'LEADERBOARD',
+    Admin = 'ADMIN',
 }
 
 export enum AdminPage {
     Analytics = 'ANALYTICS',
     Menu = 'MENU',
+    Orders = 'ORDERS',
     Users = 'USERS',
     Promotions = 'PROMOTIONS',
+    Inventory = 'INVENTORY',
     Settings = 'SETTINGS',
 }

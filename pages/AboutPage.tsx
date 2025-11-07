@@ -26,7 +26,7 @@ const AboutPage: React.FC = () => {
                             transition={{ duration: 0.7, delay: 0.2 }}
                             className="mt-6 text-lg text-gray-700 leading-relaxed"
                         >
-                           Potato & Friends was born from a simple yet profound love for the humble potato. We saw a world of possibilities in every spud, a canvas for culinary creativity. Our journey began in a small kitchen with a single deep fryer and an obsession with crafting the perfect fry: crispy on the outside, fluffy on the inside.
+                           <span className="logo-3d-inline">Potato & Friends</span> was born from a simple yet profound love for the humble potato. We saw a world of possibilities in every spud, a canvas for culinary creativity. Our journey began in a small kitchen with a single deep fryer and an obsession with crafting the perfect fry: crispy on the outside, fluffy on the inside.
                         </motion.p>
                          <motion.p 
                             initial={{ opacity: 0, x: -50 }} 

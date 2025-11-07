@@ -5,7 +5,6 @@ import { AuthProvider, useAuth } from './context/AuthContext';
 import { AppStateProvider, useAppState } from './context/AppContext';
 import LoginPage from './pages/LoginPage';
 import MainApp from './pages/MainApp';
-import AdminDashboard from './pages/admin/AdminDashboard';
 import { CartProvider } from './context/CartContext';
 import { OrderProvider } from './context/OrderContext';
 
@@ -30,7 +29,7 @@ const AppContent: React.FC = () => {
         <AppStateProvider>
             <CartProvider>
                 <OrderProvider>
-                    {currentUser.email === 'admin@potato.com' ? <AdminDashboard /> : <MainApp />}
+                    <MainApp />
                 </OrderProvider>
             </CartProvider>
         </AppStateProvider>
@@ -38,4 +37,3 @@ const AppContent: React.FC = () => {
 };
 
 export default App;
-   

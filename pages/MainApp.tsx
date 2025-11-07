@@ -3,6 +3,7 @@ import React from 'react';
 import { AnimatePresence, motion, Transition } from 'framer-motion';
 import { useAppState } from '../context/AppContext';
 import { Page } from '../types';
+import { useAuth } from '../context/AuthContext';
 
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -20,6 +21,7 @@ import LeaderboardPage from './LeaderboardPage';
 import MenuItemModal from '../components/MenuItemModal';
 import OrderConfirmationModal from '../components/OrderConfirmationModal';
 import AiFeatureModal from '../components/AiModals';
+import AdminDashboard from './admin/AdminDashboard';
 
 const pageVariants = {
   initial: { opacity: 0, y: 20 },
@@ -37,6 +39,11 @@ const pageTransition: Transition = {
 
 const MainApp: React.FC = () => {
     const { currentPage } = useAppState();
+    const { currentUser } = useAuth();
+
+    if (currentPage === Page.Admin) {
+        return <AdminDashboard />;
+    }
 
     const renderPage = () => {
         switch (currentPage) {

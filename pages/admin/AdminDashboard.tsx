@@ -1,24 +1,30 @@
 
 import React, { useState } from 'react';
 import { useAuth } from '../../context/AuthContext';
-import { AdminPage } from '../../types';
+import { AdminPage, Page } from '../../types';
 import AdminAnalytics from './AdminAnalytics';
 import AdminMenu from './AdminMenu';
 import AdminUsers from './AdminUsers';
 import AdminPromotions from './AdminPromotions';
 import AdminSettings from './AdminSettings';
-import { LogoutIcon } from '../../components/icons';
+import { LogoutIcon, StoreIcon } from '../../components/icons';
+import AdminOrders from './AdminOrders';
+import AdminInventory from './AdminInventory';
+import { useAppState } from '../../context/AppContext';
 
 const AdminDashboard: React.FC = () => {
     const [currentPage, setCurrentPage] = useState<AdminPage>(AdminPage.Analytics);
     const { logout } = useAuth();
+    const { navigateTo } = useAppState();
 
     const renderPage = () => {
         switch (currentPage) {
             case AdminPage.Analytics: return <AdminAnalytics />;
             case AdminPage.Menu: return <AdminMenu />;
+            case AdminPage.Orders: return <AdminOrders />;
             case AdminPage.Users: return <AdminUsers />;
             case AdminPage.Promotions: return <AdminPromotions />;
+            case AdminPage.Inventory: return <AdminInventory />;
             case AdminPage.Settings: return <AdminSettings />;
             default: return <AdminAnalytics />;
         }
@@ -27,8 +33,10 @@ const AdminDashboard: React.FC = () => {
     const navItems = [
         { page: AdminPage.Analytics, label: 'Analytics' },
         { page: AdminPage.Menu, label: 'Menu Mgt.' },
+        { page: AdminPage.Orders, label: 'Orders' },
         { page: AdminPage.Users, label: 'User Mgt.' },
         { page: AdminPage.Promotions, label: 'Promotions' },
+        { page: AdminPage.Inventory, label: 'Inventory' },
         { page: AdminPage.Settings, label: 'Site Settings' },
     ];
 
@@ -38,6 +46,16 @@ const AdminDashboard: React.FC = () => {
                 <div className="p-6 text-2xl font-bold border-b border-gray-700">P&F Admin</div>
                 <nav className="flex-grow p-4">
                     <ul>
+                         <li>
+                            <button
+                                onClick={() => navigateTo(Page.Home)}
+                                className={`w-full text-left px-4 py-2 rounded-md my-1 transition-colors hover:bg-gray-700 flex items-center`}
+                            >
+                                <StoreIcon className="w-5 h-5 mr-2" />
+                                View Store
+                            </button>
+                        </li>
+                        <li className="my-2 border-t border-gray-700"></li>
                         {navItems.map(item => (
                              <li key={item.page}>
                                 <button
@@ -65,4 +83,3 @@ const AdminDashboard: React.FC = () => {
 };
 
 export default AdminDashboard;
-    

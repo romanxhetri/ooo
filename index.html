@@ -31,6 +31,43 @@
       .text-glow-animated {
         animation: text-glow-pulse 3s infinite ease-in-out;
       }
+      .logo-3d {
+          font-weight: 800;
+          color: #FBBF24;
+          text-shadow:
+              1px 1px 0 #D97706, /* amber-600 */
+              2px 2px 0 #B45309, /* amber-700 */
+              3px 3px 0 #92400E, /* amber-800 */
+              4px 4px 0 #78350F, /* amber-900 */
+              5px 5px 10px rgba(0,0,0,0.2);
+          transition: all 0.2s ease-out;
+      }
+      .logo-3d:hover {
+          transform: translate(-2px, -2px) skewX(-2deg) skewY(-1deg);
+          text-shadow:
+              1px 1px 0 #D97706,
+              2px 2px 0 #D97706,
+              3px 3px 0 #B45309,
+              4px 4px 0 #B45309,
+              5px 5px 0 #92400E,
+              6px 6px 0 #92400E,
+              7px 7px 0 #78350F,
+              8px 8px 0 #78350F,
+              10px 10px 15px rgba(0,0,0,0.3);
+      }
+      .logo-3d-inline {
+          font-weight: 700;
+          color: #FBBF24; /* amber-400 */
+          text-shadow: 1px 1px 0 #B45309; /* amber-700 */
+          display: inline-block;
+          transition: all 0.1s ease-out;
+      }
+      .logo-3d-inline:hover {
+          transform: translateY(-1px);
+          text-shadow:
+              1px 1px 0 #B45309,
+              2px 2px 0 #92400E; /* amber-800 */
+      }
     </style>
     <script>
       tailwind.config = {

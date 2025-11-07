@@ -25,7 +25,7 @@ const GalleryPage: React.FC = () => {
         <div className="container mx-auto px-4 py-12">
             <div className="text-center mb-12">
                  <h1 className="text-4xl md:text-5xl font-extrabold text-brand-orange text-glow">A Feast for Your Eyes</h1>
-                 <p className="mt-4 text-lg text-gray-600">Explore the vibrant atmosphere and mouth-watering dishes of Potato & Friends.</p>
+                 <p className="mt-4 text-lg text-gray-600">Explore the vibrant atmosphere and mouth-watering dishes of <span className="logo-3d-inline">Potato & Friends</span>.</p>
             </div>
             
             <motion.div 

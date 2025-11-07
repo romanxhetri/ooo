@@ -49,7 +49,7 @@ const Header: React.FC = () => {
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center justify-between h-20">
                     <div className="flex-shrink-0 cursor-pointer" onClick={() => navigateTo(Page.Home)}>
-                        <span className="text-2xl font-extrabold text-brand-orange text-glow">Potato & Friends</span>
+                        <span className="text-2xl logo-3d">Potato & Friends</span>
                     </div>
 
                     <nav className="hidden md:flex items-center space-x-6">
@@ -104,6 +104,12 @@ const Header: React.FC = () => {
                                         <button onClick={() => setActiveAiModal('chef')} className="w-full text-left px-4 py-2 text-gray-700 hover:bg-orange-100">Ask the Chef</button>
                                         <button onClick={() => setActiveAiModal('assistant')} className="w-full text-left px-4 py-2 text-gray-700 hover:bg-orange-100">AI Assistant</button>
                                         <button onClick={() => setActiveAiModal('voice')} className="w-full text-left px-4 py-2 text-gray-700 hover:bg-orange-100">Voice Ordering</button>
+                                        <>
+                                            <div className="border-t my-1"></div>
+                                            <button onClick={() => handleNavigation(Page.Admin)} className="w-full text-left px-4 py-2 text-gray-700 hover:bg-orange-100 font-bold">
+                                                Admin Dashboard
+                                            </button>
+                                        </>
                                         <div className="border-t my-1"></div>
                                         <button onClick={handleLogout} className="w-full text-left px-4 py-2 text-red-600 hover:bg-red-100 flex items-center">
                                             <LogoutIcon className="w-5 h-5 mr-2"/>

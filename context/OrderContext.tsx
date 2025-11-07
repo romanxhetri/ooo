@@ -9,6 +9,7 @@ interface OrderContextType {
     orders: Order[];
     placeOrder: (orderData: Omit<Order, 'id' | 'createdAt' | 'status'>) => Order;
     getOrdersForCurrentUser: () => Order[];
+    updateOrderStatus: (orderId: string, status: OrderStatus) => void;
 }
 
 const OrderContext = createContext<OrderContextType | undefined>(undefined);
@@ -57,7 +58,13 @@ export const OrderProvider: React.FC<{ children: ReactNode }> = ({ children }) =
         return orders.filter(order => order.userId === currentUser.id).sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
     };
 
-    const value = { orders, placeOrder, getOrdersForCurrentUser };
+    const updateOrderStatus = (orderId: string, status: OrderStatus) => {
+        setOrders(prevOrders => prevOrders.map(order =>
+            order.id === orderId ? { ...order, status } : order
+        ));
+    };
+
+    const value = { orders, placeOrder, getOrdersForCurrentUser, updateOrderStatus };
 
     return <OrderContext.Provider value={value}>{children}</OrderContext.Provider>;
 };
@@ -69,4 +76,3 @@ export const useOrders = (): OrderContextType => {
     }
     return context;
 };
-   
