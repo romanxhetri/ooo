@@ -1,10 +1,11 @@
+
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useAppState } from '../context/AppContext';
 import { useData } from '../context/DataContext';
 import { Page } from '../types';
 import MenuItemCard from '../components/MenuItemCard';
-import { ArrowRightIcon } from '../components/icons';
+import { ArrowRightIcon, ChevronDoubleDownIcon } from '../components/icons';
 
 const HomePage: React.FC = () => {
     const { navigateTo } = useAppState();
@@ -12,10 +13,17 @@ const HomePage: React.FC = () => {
 
     const featuredItems = menuItems.slice(0, 3);
 
+    const handleScrollDown = () => {
+        window.scrollTo({
+            top: window.innerHeight,
+            behavior: 'smooth',
+        });
+    };
+
     return (
         <div>
             {/* Hero Section */}
-            <div className="relative h-screen bg-cover bg-center bg-no-repeat" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1594212699903-ec8a3e501716?q=80&w=2574&auto=format&fit=crop')" }}>
+            <div className="relative h-screen bg-cover bg-center bg-no-repeat" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1621852004136-613144933593?q=80&w=2574&auto=format&fit=crop')" }}>
                 <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/70 via-brand-dark/20 to-transparent"></div>
                 <div className="relative z-10 flex flex-col items-center justify-center h-full text-white text-center px-4">
                     <motion.h1 
@@ -48,6 +56,28 @@ const HomePage: React.FC = () => {
                             Book a Table
                         </button>
                     </motion.div>
+                </div>
+
+                {/* Scroll Down Indicator */}
+                <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20">
+                    <motion.button
+                        onClick={handleScrollDown}
+                        className="text-white"
+                        aria-label="Scroll down"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1, y: [0, 10, 0] }}
+                        transition={{
+                            opacity: { duration: 0.5, delay: 1.2 },
+                            y: {
+                                duration: 1.5,
+                                repeat: Infinity,
+                                ease: 'easeInOut',
+                                delay: 1.2
+                            }
+                        }}
+                    >
+                        <ChevronDoubleDownIcon className="w-10 h-10" />
+                    </motion.button>
                 </div>
             </div>
 

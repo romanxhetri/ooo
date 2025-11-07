@@ -124,6 +124,21 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
         nutrition: { calories: 1050, protein: 35, carbs: 78, fat: 65 }
     },
     {
+        id: 'lf-09',
+        name: 'Kimchi Kick Fries',
+        description: 'A fusion of flavors! Crispy fries topped with spicy kimchi, gochujang aioli, melted mozzarella, and toasted sesame seeds.',
+        price: 12.99,
+        category: 'Loaded Fries',
+        imageUrl: 'https://picsum.photos/seed/kimchifries/600/400',
+        rating: 4.7,
+        dietaryTags: [],
+        isSpicy: true,
+        isAvailable: true,
+        customizations: [{ name: 'Add Bulgogi Beef', price: 4.00 }, { name: 'Add Fried Egg', price: 1.50 }],
+        reviews: [{ author: 'K-FoodLover', rating: 5, comment: 'Amazing combination!' }],
+        nutrition: { calories: 850, protein: 22, carbs: 80, fat: 48 }
+    },
+    {
         id: 'sd-01',
         name: 'Crispy Onion Rings',
         description: 'Golden, beer-battered onion rings served with your choice of dip.',
@@ -182,6 +197,21 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
         customizations: [],
         reviews: [],
         nutrition: { calories: 400, protein: 10, carbs: 30, fat: 28 }
+    },
+    {
+        id: 'sd-05',
+        name: 'Mac & Cheese Bites',
+        description: 'Creamy macaroni and cheese, breaded and fried to golden perfection. Served with a side of sriracha ketchup.',
+        price: 8.50,
+        category: 'Sides',
+        imageUrl: 'https://picsum.photos/seed/macbites/600/400',
+        rating: 4.8,
+        dietaryTags: [DietaryTag.Vegetarian],
+        isSpicy: false,
+        isAvailable: true,
+        customizations: [],
+        reviews: [],
+        nutrition: { calories: 550, protein: 18, carbs: 45, fat: 30 }
     },
     {
         id: 'dp-01',
@@ -317,6 +347,36 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
         customizations: [],
         reviews: [],
         nutrition: { calories: 150, protein: 0, carbs: 40, fat: 0 }
+    },
+    {
+        id: 'dr-07',
+        name: 'Mango Tango Cooler',
+        description: 'A refreshing blend of mango puree, fresh mint, and a splash of lime, topped with sparkling water.',
+        price: 4.50,
+        category: 'Drinks',
+        imageUrl: 'https://picsum.photos/seed/mangocooler/600/400',
+        rating: 4.9,
+        dietaryTags: [DietaryTag.Vegan, DietaryTag.GlutenFree, DietaryTag.Vegetarian],
+        isSpicy: false,
+        isAvailable: true,
+        customizations: [{ name: 'Add Passion Fruit Syrup', price: 0.75 }],
+        reviews: [],
+        nutrition: { calories: 120, protein: 1, carbs: 30, fat: 0 }
+    },
+    {
+        id: 'dr-08',
+        name: 'Cold Brew Coffee',
+        description: 'Smooth, rich, and low-acidity cold brew coffee, steeped for 18 hours. The perfect pick-me-up.',
+        price: 4.25,
+        category: 'Drinks',
+        imageUrl: 'https://picsum.photos/seed/coldbrew/600/400',
+        rating: 4.7,
+        dietaryTags: [DietaryTag.Vegan, DietaryTag.GlutenFree, DietaryTag.Vegetarian],
+        isSpicy: false,
+        isAvailable: true,
+        customizations: [{ name: 'Add Vanilla Sweet Cream', price: 1.00 }, { name: 'Add Oat Milk', price: 0.75 }],
+        reviews: [],
+        nutrition: { calories: 5, protein: 0, carbs: 1, fat: 0 }
     }
 ];
 
